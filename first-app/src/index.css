@@ -1,0 +1,64 @@
+.card{
+  border: 2px solid rgb(184, 173, 173);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  padding: 3rem;
+  gap: 1rem;
+  border-radius: 1rem ;
+
+}
+.card:hover{
+  transform: scale(1.025);
+  transition: 0.025;
+}
+.deck{
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.temp{
+
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  
+
+}
+.img{
+  font-size: 4rem;
+ display: fixed;
+ color: rgb(223, 48, 25);
+  
+}
+.name{
+  font-size: medium;
+  font-weight: lighter;
+  color: rgb(87, 79, 79) ;
+
+}
+#welcome{
+  font-weight: bolder;
+  font-family:"Dancing Script", cursive;
+  
+}
+.dv{
+  font-weight: lighter;
+  font-size: small;
+}
+.info{
+  font-weight: lighter;
+  font-size: small;
+  color: rgb(68, 59, 59);
+  width: 60%;
+  text-align: center;
+}
+.table{
+  border: 1px solid black;
+}
