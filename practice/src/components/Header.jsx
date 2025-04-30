@@ -1,13 +1,19 @@
 import React from 'react';
-
-export const Header = (props) => {
+import { Link } from 'react-router';
+export const Header = () => {
   return (
     <header>
       <nav>
         <ul>
-          <li onClick={props.onHomeClick}>Home</li>
-          <li onClick={props.onAboutClick}>About</li>
-          <li onClick={props.onContactClick}>Contact</li>
+          <li>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
+            <Link to={"/about"}>About</Link>
+          </li>
+          <li>
+            <Link to={"/contact"}>Contact</Link>
+          </li>
         </ul>
       </nav>
     </header>
