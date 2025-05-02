@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
+import Api from "./components/Api";
 
 const router =createBrowserRouter([
   {
@@ -10,6 +11,7 @@ const router =createBrowserRouter([
     element:(
       <>
       <Header />
+      <Api/>
       <Home />
       </>
     ),
@@ -28,6 +30,7 @@ const router =createBrowserRouter([
     element:(
       <>
       <Header />
+      
       <Contact />
       </>
     ),

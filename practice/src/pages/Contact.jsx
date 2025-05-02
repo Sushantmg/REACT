@@ -1,48 +1,62 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const Contact = () => {
+function Contact() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  async function submit(e) {
+    e.preventDefault();
+    if (username === "") {
+      alert("username is empty");
+      return;
+    }
+    if (password === "") {
+      alert("password is empty");
+      return;
+    }
+    try {
+      setLoading(true);
+      const res = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        body: JSON.stringify({ username: username, password: password }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) {
+        throw new Error("something went wrong");
+      }
+      setLoading(false);
+      alert("logged in successfully");
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  }
+
   return (
-    <div className="flex items-center justify-center flex-col h-screen bg-gray-100 border-2 shadow-md">
-      <form method="post">
-        <label htmlFor="fname">First Name: </label>
-        <br />
-        <input 
-          type="text" 
-          name="fname" 
-          id="fname" 
-          placeholder="Enter Your First Name" 
-          className="border-2 border-black rounded-md w-50 p-2" 
+    <div>
+      <form onSubmit={submit} className="form-container">
+        <label htmlFor="username">Username</label>
+        <input
+          onChange={(e) => {
+            setUsername(e.target.value); //controlled form handling
+          }}
+          value={username}
+          type="text"
+          name="username"
         />
-        <br />
-        <label htmlFor="email">Email: </label>
-        <br />
-        <input 
-          type="email" 
-          name="email" 
-          id="email" 
-          placeholder="Enter Your Valid Email" 
-          className="border-2 border-black rounded-md w-50 p-2" 
+        <label htmlFor="password">Password</label>
+        <input
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          type="password"
+          name="password"
         />
-        <br />
-        <label htmlFor="Textbox">Your Inquiry:</label>
-        <br />
-        <input 
-          type="text" 
-          name="Textbox" 
-          id="Textbox" 
-          placeholder="Your Inquiry" 
-          className="border-2 border-black rounded-md w-50 p-2" 
-        />
-        <br />
-        <input 
-          type="submit" 
-          value="Submit" 
-          name="Submit" 
-          className="text-2xl bg-gray-600 text-white rounded-md w-50 p-2" 
-        />
+        <input disabled={loading} type="submit" /> {loading && "loading....."}
       </form>
     </div>
-  )
+  );
 }
 
 export default Contact;
