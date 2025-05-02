@@ -1,7 +1,7 @@
 import { createBrowserRouter,Link,RouterProvider,} from "react-router";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
 import Header from "./components/Header";
 
 const router =createBrowserRouter([
@@ -38,7 +38,9 @@ function App() {
  
   return (
     <>
-     <RouterProvider router={router} />
+     <RouterProvider
+      router={router} />
+     
     </>
   );
 }
